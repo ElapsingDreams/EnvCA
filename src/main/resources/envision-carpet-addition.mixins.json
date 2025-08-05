@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.envisioncraft.envisionCarpetAddition.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EndSpikeFeatureMixin",
+    "SleepManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
