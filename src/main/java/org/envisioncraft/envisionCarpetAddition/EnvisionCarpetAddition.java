@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EnvisionCarpetAddition implements CarpetExtension, ModInitializer{
+public class EnvisionCarpetAddition implements CarpetExtension, ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("EnvisionCarpetAddition");
     public static final EnvisionCarpetAddition INSTANCE = new EnvisionCarpetAddition();
     public static SettingsManager settingsManager;
@@ -44,22 +44,20 @@ public class EnvisionCarpetAddition implements CarpetExtension, ModInitializer{
         return MOD_ID;
     }
 
-
     @Override
-    public void onInitialize()
-    {
+    public void onInitialize() {
         CarpetServer.manageExtension(INSTANCE);
     }
+
     @Override
     public SettingsManager extensionSettingsManager() {
         return settingsManager;
     }
+
     @Override
-    public void onGameStarted()
-    {
+    public void onGameStarted() {
         LOGGER.info("{} v{} loaded!", MOD_NAME, MOD_VERSION);
         // let's /carpet handle our few simple settings
-        // settingsManager.parseSettingsClass(EnvisionCarpetAdditionSettings.class);
         CarpetServer.settingsManager.parseSettingsClass(EnvisionCarpetAdditionSettings.class);
     }
 
@@ -78,20 +76,15 @@ public class EnvisionCarpetAddition implements CarpetExtension, ModInitializer{
             return Collections.emptyMap();
         }
 
-        //Gson gson = new Gson();
-        //return gson.fromJson(jsonData, new TypeToken<Map<String, String>>() {}.getType());
-
         // create translation keys for both Carpet and envision-carpet-addition settingsManagers
         Map<String, String> map = new Gson().fromJson(jsonData, new TypeToken<Map<String, String>>() {}.getType());
         Map<String, String> map2 = new HashMap<>();
         map.forEach((key, value) -> {
             map2.put(key, value);
-            if(key.startsWith(MOD_ID + ".rule.")) {
+            if (key.startsWith(MOD_ID + ".rule.")) {
                 map2.put(key.replace(MOD_ID + ".rule.", "carpet.rule."), value);
             }
         });
         return map2;
     }
-
-
 }
