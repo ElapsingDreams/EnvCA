@@ -4,7 +4,10 @@
   "package": "org.envisioncraft.envisionCarpetAddition.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EndermanEntity_PickUpBlockGoalMixin",
     "EndSpikeFeatureMixin",
+    "PhantomEntityMixin",
+    "PhantomSpawnerMixin",
     "SleepManagerMixin"
   ],
   "injectors": {

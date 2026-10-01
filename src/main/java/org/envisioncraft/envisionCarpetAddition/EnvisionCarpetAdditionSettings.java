@@ -1,26 +1,41 @@
 package org.envisioncraft.envisionCarpetAddition;
 
 import carpet.api.settings.Rule;
-import carpet.api.settings.CarpetRule;
-import carpet.api.settings.Validator;
-import carpet.api.settings.Validators;
-import net.minecraft.server.command.ServerCommandSource;
-
-import static carpet.api.settings.RuleCategory.*;
 
 public class EnvisionCarpetAdditionSettings {
 
     public static final String ENVISION = "envision";
+    public static final String ENTITY = "entity";
+    public static final String FAKEPLAYER = "fakeplayer";
+    public static final String WORLD = "world";
 
     @Rule(
             options = {"false", "true"},
-            categories = {ENVISION, SURVIVAL}
+            categories = {ENVISION, FAKEPLAYER}
     )
-    public static boolean ignoreFakePlayerSleep = false;
+    public static boolean fakePlayerNoSleepCount = false;
 
     @Rule(
             options = {"false", "true"},
-            categories = {ENVISION, SURVIVAL}
+            categories = {ENVISION, WORLD}
     )
     public static boolean respawnDragonNoObsidianSpike = false;
+
+    @Rule(
+            options = {"true", "false"},
+            categories = {ENVISION, ENTITY}
+    )
+    public static boolean canEndermanPickUpMushroom = true;
+
+    @Rule(
+            options = {"false", "true"},
+            categories = {ENVISION, FAKEPLAYER}
+    )
+    public static boolean fakePlayerNotAsPhantomGoal = false;
+
+    @Rule(
+            options = {"false", "true"},
+            categories = {ENVISION, FAKEPLAYER}
+    )
+    public static boolean fakePlayerNotGeneratePhantom = false;
 }
