@@ -1,0 +1,6 @@
+{
+  "envision-carpet-addition.rule.ignoreFakePlayerSleep.desc": "Whether to ignore the fake player to sleep.",
+  "envision-carpet-addition.rule.ignoreFakePlayerSleep.name": "ignoreFakePlayerSleep",
+  "envision-carpet-addition.rule.respawnDragonNoObsidianSpike.desc": "Whether to ignore the Dragon respawning to build ObsidianSpike.",
+  "envision-carpet-addition.rule.respawnDragonNoObsidianSpike.name": "respawnDragonNoObsidianSpike"
+}

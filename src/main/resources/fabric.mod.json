@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "envision-carpet-addition",
+  "version": "${version}",
+  "name": "EnvisionCarpetAddition",
+  "description": "Carpet Addition",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/envision-carpet-addition/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.envisioncraft.envisionCarpetAddition.EnvisionCarpetAddition"
+    ]
+  },
+  "mixins": [
+    "envision-carpet-addition.mixins.json",
+    {
+      "config": "envision-carpet-addition.client.mixins.json",
+      "environment": "*"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": ">=${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "carpet"
+    }
+  }
+}
