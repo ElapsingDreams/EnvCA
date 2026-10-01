@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            name = 'FabricMC'
+            url = 'https://maven.fabricmc.net/'
+        }
+    }
+    plugins {
+        id 'net.fabricmc.fabric-loom' version '1.17.21' apply false
+    }
+}
+
+plugins {
+    id 'dev.kikugie.stonecutter' version '0.9.6'
+}
+
+rootProject.name = 'EnvCA-26.2'
+
+stonecutter {
+    create(rootProject) {
+        load(file('versions.json'))
+    }
+}

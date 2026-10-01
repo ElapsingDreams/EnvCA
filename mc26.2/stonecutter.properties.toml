@@ -1,0 +1,7 @@
+# Per-version dependency versions, read by build.gradle.
+# To add a new Minecraft version later, add a section here and an entry in versions.json.
+
+["26.2"]
+version.fabric-loader = "0.19.5"
+version.fabric-api = "0.154.2+26.2"
+version.carpet = "26.2+v260616"

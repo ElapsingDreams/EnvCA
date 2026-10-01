@@ -1,0 +1,11 @@
+plugins {
+    id 'dev.kikugie.stonecutter'
+    id 'net.fabricmc.fabric-loom' apply false
+}
+
+// Active Minecraft version. To switch versions edit this line, or run:
+//   gradlew "Switch active version"
+// Stonecutter also mirrors the version into its own generated one-line
+// controller, stonecutter.gradle.kts - that file is not a build script, leave it.
+// Do not delete the [SC] marker.
+sc.active '26.2' /* [SC] DO NOT EDIT */

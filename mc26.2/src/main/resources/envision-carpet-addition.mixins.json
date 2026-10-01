@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.envisioncraft.envisionCarpetAddition.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EnderMan_TakeBlockGoalMixin",
+    "EndSpikeFeatureMixin",
+    "Phantom_SweepAttackGoalMixin",
+    "PhantomSpawnerMixin",
+    "SleepStatusMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
