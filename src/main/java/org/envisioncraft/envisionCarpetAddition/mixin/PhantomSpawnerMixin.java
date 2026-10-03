@@ -24,8 +24,11 @@ public abstract class PhantomSpawnerMixin {
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerPlayer;isSpectator()Z"))
     public boolean isSpectatorORMPFakeMixin(ServerPlayer instance) {
         if (EnvisionCarpetAdditionSettings.fakePlayerNotGeneratePhantom) {
-            instance.resetStat(Stats.CUSTOM.get(Stats.TIME_SINCE_REST));
-            return instance.gameMode.getGameModeForPlayer() == GameType.SPECTATOR || instance instanceof EntityPlayerMPFake;
+            if (instance instanceof EntityPlayerMPFake) {
+                instance.resetStat(Stats.CUSTOM.get(Stats.TIME_SINCE_REST));
+                return true;
+            }
+            return instance.gameMode.getGameModeForPlayer() == GameType.SPECTATOR;
         }
         return instance.gameMode.getGameModeForPlayer() == GameType.SPECTATOR;
     }
