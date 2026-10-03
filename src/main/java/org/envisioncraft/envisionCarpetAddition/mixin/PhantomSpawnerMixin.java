@@ -16,8 +16,11 @@ public abstract class PhantomSpawnerMixin implements SpecialSpawner {
     @Redirect(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;isSpectator()Z"))
     public boolean isSpectatorORMPFakeMixin(ServerPlayerEntity instance) {
         if (EnvisionCarpetAdditionSettings.fakePlayerNotGeneratePhantom) {
-            instance.resetStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST));
-            return instance.interactionManager.getGameMode() == GameMode.SPECTATOR || instance instanceof EntityPlayerMPFake;
+            if (instance instanceof EntityPlayerMPFake) {
+                instance.resetStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST));
+                return true;
+            }
+            return instance.interactionManager.getGameMode() == GameMode.SPECTATOR;
         }
         return instance.interactionManager.getGameMode() == GameMode.SPECTATOR;
     }
